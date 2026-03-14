@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balram Jaiswal – Businessman & Insurance Advisor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --charcoal-deep:  #1a1a1a;
+            --charcoal:       #2b2b2b;
+            --charcoal-mid:   #3d3d3d;
+            --charcoal-light: #555555;
+            --copper:         #b87333;
+            --copper-bright:  #d4894a;
+            --copper-light:   #e8a96e;
+            --copper-pale:    #f5e6d3;
+            --copper-glow:    rgba(184,115,51,0.15);
+            --cream:          #faf7f4;
+            --white:          #ffffff;
+            --text:           #2c2c2c;
+            --text-light:     #6b6b6b;
+            --border:         #e0d5c8;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior:smooth; }
+        body { font-family:'DM Sans',sans-serif; background:var(--cream); color:var(--text); overflow-x:hidden; }
+
+        /* ── TOPBAR ── */
+        .topbar {
+            background:var(--charcoal-deep);
+            color:rgba(255,255,255,0.55);
+            font-size:0.77rem;
+            letter-spacing:0.04em;
+            padding:8px 0;
+        }
+        .topbar .inner {
+            max-width:1200px; margin:auto; padding:0 2rem;
+            display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:6px;
+        }
+        .topbar a { color:var(--copper-light); text-decoration:none; }
+        .topbar a:hover { color:var(--copper-bright); }
+
+        /* ── HEADER ── */
+        header {
+            background:var(--charcoal);
+            padding:1.4rem 2rem;
+            position:sticky; top:0; z-index:1000;
+            box-shadow:0 4px 24px rgba(0,0,0,0.45);
+            border-bottom:2px solid var(--copper);
+        }
+        .header-inner {
+            max-width:1200px; margin:auto;
+            display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem;
+        }
+        .brand { display:flex; align-items:center; gap:1rem; text-decoration:none; cursor:pointer; }
+        .monogram { width:56px; height:56px; border-radius:50%;
+            display:flex; align-items:center; justify-content:center;
+            flex-shrink:0; overflow:hidden; background:transparent;
+        }
+        .monogram img { width:100%; height:100%; object-fit:contain; }
+        .brand-text h1 {
+            font-family:'Playfair Display',serif; font-size:1.5rem;
+            font-weight:700; color:var(--white); line-height:1.1;
+        }
+        .brand-text span {
+            font-size:0.68rem; color:var(--copper-light);
+            letter-spacing:0.14em; text-transform:uppercase; font-weight:400;
+        }
+
+        /* ── NAV TABS ── */
+        .main-nav { background:var(--charcoal-mid); border-bottom:1px solid rgba(184,115,51,0.25); }
+        .nav-inner { max-width:1200px; margin:auto; display:flex; overflow-x:auto; scrollbar-width:none; }
+        .nav-inner::-webkit-scrollbar { display:none; }
+        .nav-tab {
+            display:flex; align-items:center; gap:0.45rem;
+            padding:0.95rem 1.5rem;
+            color:rgba(255,255,255,0.55);
+            font-size:0.78rem; letter-spacing:0.09em; text-transform:uppercase; font-weight:500;
+            cursor:pointer; border:none; background:none; white-space:nowrap;
+            border-bottom:3px solid transparent;
+            transition:all 0.2s;
+        }
+        .nav-tab i { font-size:0.85rem; }
+        .nav-tab:hover { color:var(--copper-light); }
+        .nav-tab.active { color:var(--copper-bright); border-bottom:3px solid var(--copper); background:rgba(184,115,51,0.07); }
+
+        /* ── PAGE SWITCH ── */
+        .page { display:none; }
+        .page.active { display:block; animation:fadeUp 0.3s ease both; }
+        @keyframes fadeUp { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
+
+        /* ── HERO ── */
+        .hero {
+            background:linear-gradient(145deg, var(--charcoal-deep) 0%, var(--charcoal) 55%, #3a2a1a 100%);
+            min-height:86vh; display:flex; align-items:center;
+            position:relative; overflow:hidden;
+        }
+        .hero-mesh {
+            position:absolute; inset:0;
+            background:
+                radial-gradient(ellipse at 75% 40%, rgba(184,115,51,0.12) 0%, transparent 55%),
+                radial-gradient(ellipse at 20% 80%, rgba(184,115,51,0.06) 0%, transparent 45%);
+        }
+        .hero-dots {
+            position:absolute; inset:0;
+            background-image: radial-gradient(circle, rgba(184,115,51,0.12) 1px, transparent 1px);
+            background-size:36px 36px;
+        }
+        .hero-content {
+            max-width:1200px; margin:auto; padding:4rem 2rem;
+            position:relative; z-index:2;
+            display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center;
+        }
+        .hero-chip {
+            display:inline-flex; align-items:center; gap:0.5rem;
+            border:1px solid var(--copper); color:var(--copper-light);
+            font-size:0.68rem; letter-spacing:0.18em; text-transform:uppercase;
+            padding:5px 14px; margin-bottom:1.5rem;
+        }
+        .hero h2 {
+            font-family:'Playfair Display',serif;
+            font-size:clamp(2.2rem,3.8vw,3.6rem); font-weight:900;
+            color:var(--white); line-height:1.15; margin-bottom:1rem;
+        }
+        .hero h2 em { font-style:normal; color:var(--copper-bright); }
+        .hero-desc {
+            color:rgba(255,255,255,0.6); font-size:0.95rem;
+            line-height:1.85; margin-bottom:2.5rem; font-weight:300;
+        }
+        .hero-btns { display:flex; gap:1rem; flex-wrap:wrap; }
+        .btn-copper {
+            background:var(--copper); color:var(--white);
+            padding:0.8rem 1.8rem; font-size:0.8rem;
+            letter-spacing:0.12em; text-transform:uppercase; font-weight:600;
+            border:none; cursor:pointer; text-decoration:none;
+            transition:all 0.25s; display:inline-block;
+        }
+        .btn-copper:hover { background:var(--copper-bright); }
+        .btn-ghost {
+            border:1px solid rgba(184,115,51,0.5); color:var(--copper-light);
+            padding:0.8rem 1.8rem; font-size:0.8rem;
+            letter-spacing:0.12em; text-transform:uppercase; font-weight:500;
+            background:none; cursor:pointer; text-decoration:none;
+            transition:all 0.25s; display:inline-block;
+        }
+        .btn-ghost:hover { border-color:var(--copper); color:var(--copper); }
+
+        /* Role Cards in hero */
+        .role-cards { display:flex; flex-direction:column; gap:1rem; }
+        .role-card {
+            background:rgba(255,255,255,0.04); border:1px solid rgba(184,115,51,0.2);
+            border-left:3px solid var(--copper); padding:1.1rem 1.4rem;
+            display:flex; align-items:center; gap:1rem; cursor:pointer;
+            transition:all 0.25s;
+        }
+        .role-card:hover { background:rgba(184,115,51,0.08); }
+        .role-card .rc-icon {
+            width:42px; height:42px; background:rgba(184,115,51,0.15);
+            border-radius:50%; display:flex; align-items:center; justify-content:center;
+            color:var(--copper-bright); font-size:1rem; flex-shrink:0;
+        }
+        .role-card h4 { font-family:'Playfair Display',serif; font-size:1rem; color:var(--white); font-weight:600; margin-bottom:2px; }
+        .role-card p { font-size:0.75rem; color:rgba(255,255,255,0.45); }
+
+        /* Stats bar */
+        .stats-bar { background:var(--copper); padding:1.4rem 2rem; }
+        .stats-inner {
+            max-width:1200px; margin:auto;
+            display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; text-align:center;
+        }
+        .stat-item h3 { font-family:'Playfair Display',serif; font-size:1.9rem; font-weight:900; color:var(--white); }
+        .stat-item p { font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.75); font-weight:500; }
+
+        /* ── SECTION HEADER ── */
+        .sec-header {
+            background:var(--charcoal);
+            padding:3.5rem 2rem; text-align:center; position:relative; overflow:hidden;
+        }
+        .sec-header::before {
+            content:''; position:absolute; inset:0;
+            background:radial-gradient(ellipse at 50% 0%, rgba(184,115,51,0.15) 0%, transparent 65%);
+        }
+        .sec-header h2 {
+            font-family:'Playfair Display',serif; font-size:clamp(1.8rem,3.5vw,2.8rem);
+            color:var(--white); font-weight:700; position:relative; z-index:1;
+        }
+        .sec-header p { color:rgba(255,255,255,0.55); font-size:0.9rem; margin-top:0.4rem; position:relative; z-index:1; font-weight:300; }
+        .copper-line { width:50px; height:2px; background:var(--copper); margin:0.8rem auto 0; }
+
+        .sec-body { max-width:1200px; margin:auto; padding:3.5rem 2rem; }
+
+        /* ── ABOUT (home) ── */
+        .about-block { background:var(--white); padding:4rem 2rem; border-top:1px solid var(--border); }
+        .about-inner { max-width:1200px; margin:auto; display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center; }
+        .about-inner .label { font-size:0.68rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--copper); font-weight:600; margin-bottom:0.8rem; }
+        .about-inner h2 { font-family:'Playfair Display',serif; font-size:2rem; color:var(--charcoal-deep); font-weight:700; margin-bottom:1rem; line-height:1.25; }
+        .about-inner p { color:var(--text-light); font-size:0.9rem; line-height:1.85; margin-bottom:0.8rem; }
+        .pillars { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-top:1.5rem; }
+        .pillar { background:var(--copper-pale); border-left:3px solid var(--copper); padding:1rem 1.2rem; }
+        .pillar h5 { font-family:'Playfair Display',serif; font-size:0.95rem; color:var(--charcoal-deep); font-weight:700; margin-bottom:2px; }
+        .pillar p { font-size:0.77rem; color:var(--text-light); }
+
+        /* ── SHOP ── */
+        .cat-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; margin-bottom:2.5rem; }
+        .cat-card { background:var(--white); border:1px solid var(--border); overflow:hidden; transition:all 0.3s; }
+        .cat-card:hover { transform:translateY(-4px); box-shadow:0 12px 40px rgba(0,0,0,0.1); border-color:var(--copper); }
+        .cat-img {
+            height:175px; background:var(--charcoal); display:flex; align-items:center;
+            justify-content:center; position:relative; overflow:hidden;
+        }
+        .cat-img img { width:100%; height:100%; object-fit:cover; position:absolute; inset:0; }
+        .cat-img .cat-icon { font-size:3.5rem; color:var(--copper); opacity:0.4; position:relative; z-index:1; }
+        .cat-body { padding:1.4rem; }
+        .cat-body h3 { font-family:'Playfair Display',serif; font-size:1.25rem; color:var(--charcoal-deep); font-weight:700; margin-bottom:0.4rem; }
+        .cat-body p { font-size:0.83rem; color:var(--text-light); line-height:1.65; }
+        .cat-tag { display:inline-block; background:var(--copper-pale); color:var(--copper); font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; padding:3px 10px; margin-top:0.7rem; font-weight:600; border:1px solid rgba(184,115,51,0.25); }
+
+        /* Gallery */
+        .gallery-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:0.7rem; margin-top:1.5rem; }
+        .g-slot {
+            aspect-ratio:1; background:linear-gradient(135deg,#ede5db,#ddd0c0);
+            border:2px dashed var(--border); display:flex; flex-direction:column;
+            align-items:center; justify-content:center; cursor:pointer;
+            transition:all 0.2s; color:var(--text-light); font-size:0.72rem; text-align:center; gap:0.35rem;
+            position:relative; overflow:hidden;
+        }
+        .g-slot i { font-size:1.4rem; opacity:0.35; }
+        .g-slot:hover { border-color:var(--copper); background:var(--copper-pale); }
+        .g-slot img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+
+        .info-box { background:var(--charcoal); border-left:4px solid var(--copper); padding:1.5rem 2rem; margin-top:2rem; }
+        .info-box h4 { font-family:'Playfair Display',serif; font-size:1.1rem; color:var(--white); margin-bottom:0.4rem; }
+        .info-box p { color:rgba(255,255,255,0.6); font-size:0.83rem; line-height:1.7; }
+        .info-box code { background:rgba(255,255,255,0.1); padding:2px 6px; font-size:0.78rem; }
+
+        /* ── TRADING ── */
+        .trading-grid { display:grid; grid-template-columns:1fr 1fr; gap:2rem; margin-bottom:2.5rem; }
+        .trading-card { background:var(--white); border:1px solid var(--border); padding:2.5rem; position:relative; overflow:hidden; }
+        .trading-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,var(--copper),var(--copper-light)); }
+        .t-badge { display:inline-flex; align-items:center; gap:0.4rem; background:var(--copper-pale); border:1px solid rgba(184,115,51,0.3); padding:0.35rem 0.9rem; font-size:0.67rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--copper); font-weight:600; margin-bottom:1rem; }
+        .trading-card h3 { font-family:'Playfair Display',serif; font-size:1.8rem; color:var(--charcoal-deep); font-weight:700; margin-bottom:0.3rem; }
+        .trading-card .role { font-size:0.77rem; color:var(--copper); letter-spacing:0.12em; text-transform:uppercase; font-weight:500; margin-bottom:0.9rem; }
+        .trading-card p { color:var(--text-light); font-size:0.87rem; line-height:1.8; }
+        .feat-list { list-style:none; margin-top:1.1rem; }
+        .feat-list li { display:flex; align-items:flex-start; gap:0.55rem; padding:0.38rem 0; font-size:0.83rem; color:var(--text); border-bottom:1px solid #f5f0e8; }
+        .feat-list li:last-child { border-bottom:none; }
+        .feat-list li i { color:var(--copper); margin-top:2px; font-size:0.72rem; }
+        .t-bg-icon { font-size:3.5rem; color:var(--copper); opacity:0.08; position:absolute; bottom:1.2rem; right:1.2rem; }
+        .mdrt-card {
+            background:linear-gradient(140deg,var(--charcoal-deep) 0%,#2e1e0e 100%);
+            border:1px solid rgba(184,115,51,0.35); padding:3rem; margin-bottom:2rem;
+            position:relative; overflow:hidden;
+        }
+        .mdrt-card::before {
+            content:''; position:absolute; top:-40%; right:-15%;
+            width:380px; height:380px; border-radius:50%;
+            background:radial-gradient(circle,rgba(184,115,51,0.12) 0%,transparent 70%);
+        }
+        .mdrt-chip {
+            display:inline-flex; align-items:center; gap:0.5rem;
+            background:var(--copper); color:var(--white);
+            padding:0.45rem 1.1rem; font-size:0.72rem;
+            letter-spacing:0.15em; text-transform:uppercase; font-weight:700; margin-bottom:1.4rem;
+        }
+        .mdrt-card h3 { font-family:'Playfair Display',serif; font-size:1.9rem; color:var(--white); font-weight:700; margin-bottom:0.4rem; position:relative; }
+        .mdrt-card .sub { color:rgba(255,255,255,0.55); font-size:0.87rem; margin-bottom:1.4rem; position:relative; }
+        .mdrt-card p { color:rgba(255,255,255,0.72); font-size:0.92rem; line-height:1.9; position:relative; max-width:680px; }
+        .year-chips { display:flex; gap:0.8rem; margin-top:1.8rem; flex-wrap:wrap; }
+        .y-chip { background:rgba(184,115,51,0.15); border:1px solid rgba(184,115,51,0.4); color:var(--copper-light); padding:0.45rem 1.1rem; font-size:0.78rem; letter-spacing:0.07em; font-weight:500; display:flex; align-items:center; gap:0.4rem; }
+
+        .ins-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:1rem; margin-bottom:2rem; }
+        .ins-card { background:var(--white); border:1px solid var(--border); padding:1.5rem; text-align:center; transition:all 0.25s; }
+        .ins-card:hover { border-color:var(--copper); box-shadow:0 4px 20px rgba(184,115,51,0.12); }
+        .ins-card i { font-size:1.9rem; color:var(--copper); margin-bottom:0.8rem; display:block; }
+        .ins-card h4 { font-family:'Playfair Display',serif; font-size:1.05rem; color:var(--charcoal-deep); font-weight:700; margin-bottom:0.35rem; }
+        .ins-card p { font-size:0.78rem; color:var(--text-light); line-height:1.6; }
+
+        /* ── CONTACT ── */
+        .contact-grid { display:grid; grid-template-columns:1fr 1.4fr; gap:3rem; align-items:start; }
+        .c-info h3 { font-family:'Playfair Display',serif; font-size:1.7rem; color:var(--charcoal-deep); font-weight:700; margin-bottom:0.4rem; }
+        .c-info .sub { color:var(--text-light); font-size:0.83rem; margin-bottom:1.8rem; line-height:1.65; }
+        .c-row { display:flex; align-items:flex-start; gap:1rem; padding:0.9rem 0; border-bottom:1px solid var(--border); }
+        .c-row:last-of-type { border-bottom:none; }
+        .c-row .icon { width:38px; height:38px; background:var(--charcoal); border-radius:50%; display:flex; align-items:center; justify-content:center; color:var(--copper); font-size:0.85rem; flex-shrink:0; }
+        .c-row h5 { font-size:0.68rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-light); margin-bottom:2px; font-weight:500; }
+        .c-row p, .c-row a { font-size:0.88rem; color:var(--text); text-decoration:none; display:block; }
+        .c-row a:hover { color:var(--copper); }
+        .wa-btn { display:flex; align-items:center; justify-content:center; gap:0.5rem; background:#25D366; color:var(--white); text-decoration:none; padding:0.85rem 1.4rem; font-size:0.82rem; font-weight:600; letter-spacing:0.05em; margin-top:1.4rem; transition:all 0.2s; }
+        .wa-btn:hover { background:#1fbd5a; }
+
+        .c-form { background:var(--white); border:1px solid var(--border); padding:2.5rem; }
+        .c-form h4 { font-family:'Playfair Display',serif; font-size:1.35rem; color:var(--charcoal-deep); font-weight:700; margin-bottom:1.4rem; }
+        .f-row { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+        .f-group { margin-bottom:1rem; }
+        .f-group label { display:block; font-size:0.72rem; letter-spacing:0.09em; text-transform:uppercase; color:var(--text-light); font-weight:500; margin-bottom:0.35rem; }
+        .f-group input, .f-group textarea, .f-group select { width:100%; border:1px solid var(--border); background:var(--cream); padding:0.7rem 0.85rem; font-size:0.88rem; font-family:'DM Sans',sans-serif; color:var(--text); outline:none; transition:border-color 0.2s; }
+        .f-group input:focus, .f-group textarea:focus, .f-group select:focus { border-color:var(--copper); background:var(--white); }
+        .f-group textarea { resize:vertical; min-height:95px; }
+        .f-btn { width:100%; background:var(--charcoal-deep); color:var(--copper-light); border:none; padding:0.9rem; font-family:'DM Sans',sans-serif; font-size:0.79rem; letter-spacing:0.15em; text-transform:uppercase; font-weight:600; cursor:pointer; transition:all 0.25s; margin-top:0.4rem; }
+        .f-btn:hover { background:var(--charcoal-mid); }
+
+        /* ── FOOTER ── */
+        footer { background:var(--charcoal-deep); color:rgba(255,255,255,0.4); text-align:center; padding:2rem; font-size:0.78rem; letter-spacing:0.04em; }
+        footer span { color:var(--copper); }
+
+        /* ── TOAST ── */
+        .toast { position:fixed; bottom:2rem; right:2rem; background:var(--charcoal-deep); color:var(--white); border-left:4px solid var(--copper); padding:1rem 1.4rem; font-size:0.83rem; z-index:9999; opacity:0; transform:translateY(16px); transition:all 0.3s; pointer-events:none; }
+        .toast.show { opacity:1; transform:translateY(0); }
+
+
+        /* ── PROFILE PHOTO ── */
+        .profile-photo-wrap {
+            position: relative;
+            display: inline-block;
+        }
+        .profile-photo {
+            width: 260px;
+            height: 320px;
+            object-fit: cover;
+            object-position: top center;
+            border: 4px solid var(--copper);
+            display: block;
+            box-shadow: 12px 12px 0px var(--copper-pale), 0 20px 60px rgba(0,0,0,0.5);
+        }
+        .profile-badge {
+            position: absolute;
+            bottom: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--copper);
+            color: var(--white);
+            font-size: 0.68rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            font-weight: 700;
+            padding: 6px 18px;
+            white-space: nowrap;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media(max-width:768px){
+            .hero-content{grid-template-columns:1fr;gap:2rem;}
+            .role-cards{}
+            .stats-inner{grid-template-columns:2fr 2fr;}
+            .trading-grid{grid-template-columns:1fr;}
+            .contact-grid{grid-template-columns:1fr;}
+            .about-inner{grid-template-columns:1fr;gap:2rem;}
+            .f-row{grid-template-columns:1fr;}
+            .pillars{grid-template-columns:1fr;}
+        }
+    
+        /* ── LIGHTBOX ── */
+        #lb-overlay {
+            display:none; position:fixed; inset:0; z-index:9999;
+            background:rgba(0,0,0,0.92); align-items:center; justify-content:center;
+            flex-direction:column; gap:1rem;
+        }
+        #lb-overlay.open { display:flex; }
+        #lb-img-wrap {
+            position:relative; max-width:90vw; max-height:82vh;
+            display:flex; align-items:center; justify-content:center;
+        }
+        #lb-img {
+            max-width:90vw; max-height:82vh;
+            object-fit:contain; border-radius:6px;
+            box-shadow:0 8px 48px rgba(0,0,0,0.7);
+            user-select:none;
+        }
+        #lb-close {
+            position:fixed; top:1.2rem; right:1.4rem;
+            background:rgba(255,255,255,0.12); border:none; color:#fff;
+            font-size:1.6rem; width:44px; height:44px; border-radius:50%;
+            cursor:pointer; display:flex; align-items:center; justify-content:center;
+            transition:background 0.2s; z-index:10000;
+        }
+        #lb-close:hover { background:var(--copper); }
+        .lb-arrow {
+            position:fixed; top:50%; transform:translateY(-50%);
+            background:rgba(255,255,255,0.1); border:none; color:#fff;
+            font-size:1.8rem; width:50px; height:50px; border-radius:50%;
+            cursor:pointer; display:flex; align-items:center; justify-content:center;
+            transition:background 0.2s; z-index:10000;
+        }
+        .lb-arrow:hover { background:var(--copper); }
+        #lb-prev { left:1rem; }
+        #lb-next { right:1rem; }
+        #lb-caption {
+            color:rgba(255,255,255,0.7); font-size:0.85rem;
+            letter-spacing:0.06em; text-align:center;
+        }
+        #lb-counter {
+            color:rgba(255,255,255,0.4); font-size:0.75rem;
+        }
+        .g-slot img { cursor:pointer; transition:transform 0.22s, opacity 0.22s; }
+        .g-slot:hover img { transform:scale(1.04); opacity:0.88; }
+
+        /* ── WHY CLIENTS TRUST HIM ── */
+        .trust-section {
+            margin:2.5rem 0;
+            background:linear-gradient(135deg,var(--charcoal-deep) 0%,#2e1e0e 100%);
+            border:1px solid rgba(184,115,51,0.3);
+            padding:2.5rem;
+            position:relative;
+            overflow:hidden;
+        }
+        .trust-section::before {
+            content:'';
+            position:absolute; top:-60px; right:-60px;
+            width:220px; height:220px; border-radius:50%;
+            background:radial-gradient(circle,rgba(184,115,51,0.15) 0%,transparent 70%);
+        }
+        .trust-section h3 {
+            font-family:'Playfair Display',serif;
+            font-size:1.4rem; font-weight:700;
+            color:var(--white);
+            margin-bottom:1.5rem;
+            display:flex; align-items:center; gap:0.6rem;
+        }
+        .trust-section h3 i { color:var(--copper); font-size:1.1rem; }
+        .trust-list {
+            list-style:none;
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+            gap:0.8rem;
+        }
+        .trust-list li {
+            display:flex; align-items:center; gap:0.75rem;
+            background:rgba(255,255,255,0.05);
+            border:1px solid rgba(184,115,51,0.2);
+            border-left:3px solid var(--copper);
+            padding:0.75rem 1rem;
+            font-size:0.87rem;
+            color:rgba(255,255,255,0.88);
+            line-height:1.5;
+            transition:background 0.2s;
+        }
+        .trust-list li:hover { background:rgba(184,115,51,0.1); }
+        .trust-list li i { color:var(--copper); font-size:0.8rem; flex-shrink:0; }
+        
+</style>
+</head>
+<body>
+
+<!-- ════ LIGHTBOX OVERLAY ════ -->
+<div id="lb-overlay" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <button id="lb-close" onclick="lbClose()" title="Close (Esc)">&#x2715;</button>
+  <button class="lb-arrow" id="lb-prev" onclick="lbStep(-1)" title="Previous">&#8249;</button>
+  <div id="lb-img-wrap">
+    <img id="lb-img" src="" alt="">
+  </div>
+  <button class="lb-arrow" id="lb-next" onclick="lbStep(1)" title="Next">&#8250;</button>
+  <div id="lb-caption"></div>
+  <div id="lb-counter"></div>
+</div>
+
+
+<!-- Topbar -->
+<div class="topbar">
+  <div class="inner">
+    <div>
+      <i class="fas fa-phone-alt" style="margin-right:5px;color:var(--copper-light)"></i>
+      <a href="tel:+919830856031">+91 9883477391</a> &nbsp;/&nbsp;
+      <a href="tel:+919831877090">+91 9830856031</a>
+    </div>
+    <div>
+      <i class="fas fa-envelope" style="margin-right:5px;color:var(--copper-light)"></i>
+      <a href="/cdn-cgi/l/email-protection#fc95929a93bc9e9d908e9d91969d958f8b9d909b8e93898cd29f9391"><span class="__cf_email__" data-cfemail="afc5cec6dcd8cec3c8ddc0dadf9997efc8c2cec6c381ccc0c2"><span class="__cf_email__" data-cfemail="a1cbc0c8d2d6c0cdc6d3ced4d19799e1c6ccc0c8cd8fc2cecc">jaiswalgroup68@gmail.com</span></span></a>
+    </div>
+  </div>
+</div>
+
+<!-- Header -->
+<header>
+  <div class="header-inner">
+    <div class="brand" onclick="show('home')">
+      <div class="monogram"><img src="asset/logo.png" alt="JG Logo"></div>
+      <div class="brand-text">
+        <h1>Jaiswal Group</h1>
+        <span>Retail/Wholesale &middot; Trading &middot; Insurance Advisory</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Nav Tabs -->
+<div class="main-nav">
+  <div class="nav-inner">
+    <button class="nav-tab active" id="tab-home"      onclick="show('home')"><i class="fas fa-home"></i> Overview</button>
+    <button class="nav-tab"        id="tab-shop"      onclick="show('shop')"><i class="fas fa-store"></i> Jaiswal Group Shop</button>
+    <button class="nav-tab"        id="tab-trading"   onclick="show('trading')"><i class="fas fa-handshake"></i> Trading Business</button>
+    <button class="nav-tab"        id="tab-insurance" onclick="show('insurance')"><i class="fas fa-shield-alt"></i> Insurance Advisory</button>
+    <button class="nav-tab"        id="tab-contact"   onclick="show('contact')"><i class="fas fa-envelope"></i> Contact &amp; About</button>
+  </div>
+</div>
+
+<!-- ════════════ HOME ════════════ -->
+<div id="page-home" class="page active">
+
+  <section class="hero">
+    <div class="hero-dots"></div>
+    <div class="hero-mesh"></div>
+    <div class="hero-content">
+      <div>
+        <div class="hero-chip"><i class="fas fa-map-marker-alt"></i> Kolkata, West Bengal &middot; India</div>
+        <h2>One Person.<br><em>Three Pillars.</em><br>Trusted Excellence.</h2>
+        <p class="hero-desc">Jaiswal Group is a trusted multi-business brand led by <strong>Balram Jaiswal</strong>,
+        serving customers through retail &amp; wholesale supply, authorized trading,
+        and insurance advisory with professionalism, reliability, and long-term customer commitment.</p>
+        <div class="hero-btns">
+          <button class="btn-copper" onclick="show('contact')">Get in Touch</button>
+          <button class="btn-ghost"  onclick="show('shop')">Explore Products</button>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:1.5rem;align-items:center;">
+        <div class="profile-photo-wrap">
+          <img src="asset/hero.jpg" class="profile-photo" alt="Balram Jaiswal">
+          <div class="profile-badge">Balram Jaiswal</div>
+        </div>
+        <div class="role-cards" style="display:flex;flex-direction:column;gap:0.8rem;width:100%;margin-top:1rem;">
+          <div class="role-card" onclick="show('shop')">
+            <div class="rc-icon"><i class="fas fa-store"></i></div>
+            <div><h4>Jaiswal Group Shop</h4><p>Kitchen essentials, utensils, fans, lights, and everyday household products for retail and wholesale buyers.</p></div>
+          </div>
+          <div class="role-card" onclick="show('trading')">
+            <div class="rc-icon"><i class="fas fa-handshake"></i></div>
+            <div><h4>Trading Business</h4><p>Business association with trusted brands like Lister and Nordusk for fan and lighting solutions.</p></div>
+          </div>
+          <div class="role-card" onclick="show('insurance')">
+            <div class="rc-icon"><i class="fas fa-award"></i></div>
+            <div><h4>Insurance Advisory</h4><p>Reliable consultation and financial guidance through Aditya Birla Sun Life Insurance.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="stats-bar">
+    <div class="stats-inner">
+      <div class="stat-item"><h3>3&times;</h3><p>MDRT Achiever</p></div>
+      <div class="stat-item"><h3>2</h3><p>Trading Brands</p></div>
+      <div class="stat-item"><h3>1</h3><p>Wholesale Store</p></div>
+      <div class="stat-item"><h3>&#8734;</h3><p>Customer Trust</p></div>
+    </div>
+  </div>
+
+  <div class="about-block">
+    <div class="about-inner">
+      <div>
+        <div class="label">About Balram Jaiswal</div>
+        <h2>A Name Built on Trust &amp; Hard Work</h2>
+        <p>
+      <strong>Balram Jaiswal</strong> is an entrepreneur known for dedication, consistency,
+      and trusted customer relationships. His business journey reflects a practical approach to service 
+      supplying useful household products, building strong brand trade connections,
+      and guiding people with dependable financial advice.
+    </p>
+    <p>
+      Through <strong>Jaiswal Group</strong>, he has created a business identity that stands for genuine service,
+      quality product offerings, trusted brand associations, and long-term customer value. </p>
+    <p>
+       Alongside his business activities, <strong>He is also associated with<strong>Aditya Birla Sun Life Insurance</strong> as a respected advisor.
+      His advisory approach is based on trust, customer understanding, and practical financial guidance.
+    </p>
+    <p>
+      He believes insurance is not just about policies — it is about
+      <strong>family security, long-term planning, and peace of mind</strong>.
+    </p>
+    </p>
+      </div>
+      <div>
+        <div style="text-align:center;margin-bottom:2rem;">
+          <div class="profile-photo-wrap">
+            <img src="asset/hero2.png" class="profile-photo" alt="Balram Jaiswal" style="width:220px;height:280px;">
+            <div class="profile-badge">Balram Jaiswal</div>
+          </div>
+        </div>
+        <div class="pillars">
+          <div class="pillar"><h5>Retail &amp; Wholesale</h5><p>Utensils, fans, lights for retailers &amp; bulk buyers</p></div>
+          <div class="pillar"><h5>Product Trading</h5><p>Lister (Lights &amp; Fans) &amp; Nordusk (Lights)</p></div>
+          <div class="pillar"><h5>Insurance Advisory</h5><p>Life &amp; financial planning expertise</p></div>
+          <div class="pillar"><h5>MDRT Certified</h5><p>3&times; Million Dollar Round Table distinction</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════ SHOP ════════════ -->
+<div id="page-shop" class="page">
+  <div class="sec-header">
+    <h2>Jaiswal Group &mdash;Retail/Wholesale Shop</h2>
+    <p>Quality home essentials for retailers and bulk buyers across India</p>
+    <div class="copper-line"></div>
+  </div>
+  <div class="sec-body">
+    <div class="cat-grid">
+      <div class="cat-card">
+        <div class="cat-img">
+          <img src="shop/utensils/cover.jpg" onerror="this.style.display='none'" alt="Utensils">
+          <i class="fas fa-utensils cat-icon"></i>
+        </div>
+        <div class="cat-body">
+          <h3>Utensils &amp; Cookware</h3>
+          <p>Premium stainless steel cookware, pressure cookers, kitchen sets, and everyday essentials at competitive wholesale rates.</p>
+          <span class="cat-tag">Wholesale Available</span>
+        </div>
+      </div>
+      <div class="cat-card">   
+        <div class="cat-img">
+          <img src="shop/cover.jpg" onerror="this.style.display='none'" alt="Fans">
+          <i class="fas fa-fan cat-icon"></i>
+        </div>
+        <div class="cat-body">
+          <h3>Fans</h3>
+          <p>Ceiling fans, table fans, pedestal fans, and exhaust fans from leading brands. Bulk order pricing available.</p>
+          <span class="cat-tag">Bulk Orders Welcome</span>
+        </div>
+      </div>
+      <div class="cat-card">
+        <div class="cat-img">
+          <img src="shop/lights/cover.jpg" onerror="this.style.display='none'" alt="Lights">
+          <i class="fas fa-lightbulb cat-icon"></i>
+        </div>
+        <div class="cat-body">
+          <h3>Lights &amp; Fixtures</h3>
+          <p>LED bulbs, tube lights, panel lights, and decorative lighting — energy-efficient and affordable for homes &amp; businesses.</p>
+          <span class="cat-tag">LED Specialists</span>
+        </div>
+      </div>
+    </div>
+
+    <!--
+    <div class="info-box">
+      <h4><i class="fas fa-folder-open" style="color:var(--copper);margin-right:0.5rem"></i>Interested in wholesale pricing?</h4>
+      <p>Contact us for bulk orders, reseller enquiries, and dealer discussions.</p>
+    </div> -->
+
+    <h3 style="font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--charcoal-deep);margin:2.5rem 0 0.8rem;font-weight:700;">
+      <i class="fas fa-images" style="color:var(--copper);margin-right:0.5rem;font-size:1rem"></i> Product Gallery
+    </h3>
+    <p style="color:var(--text-light);font-size:0.83rem;margin-bottom:0.5rem"> Our collection includes utensils, cookware, kitchen essentials, fans, lights,
+      and related household products. Product availability may vary depending on stock and season.</p>
+    <div class="gallery-grid" id="shopGallery"></div>
+     
+    <div style="margin-top:2.5rem;padding:1.5rem 2rem;background:var(--white);border:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+      <div>
+        <h4 style="font-family:'Playfair Display',serif;color:var(--charcoal-deep);font-size:1.1rem;margin-bottom:0.3rem">Interested in wholesale pricing?</h4>
+        <p style="color:var(--text-light);font-size:0.83rem">Contact us to discuss bulk orders, minimum quantities, and dealer rates.</p>
+      </div>
+      <button class="btn-copper" onclick="show('contact')">Enquire Now</button>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════ TRADING ════════════ -->
+<div id="page-trading" class="page">
+  <div class="sec-header">
+    <h2>Trading Business</h2>
+    <p>Authorized distributor/trader for trusted brands.</p>
+    <div class="copper-line"></div>
+  </div>
+  <div class="sec-body">
+    <div class="trading-grid">
+      <div class="trading-card">
+        <div class="t-badge"><i class="fas fa-bolt"></i> Authorised Distributer</div>
+        <img src="asset/lister_logo.jpeg" alt="Lister Logo" style="position:absolute;top:1rem;right:1rem;width:300px;height:65px;object-fit:contain;background:#fff;padding:5px;box-shadow:0 2px 8px rgba(0,0,0,0.08);z-index:2;">
+<h3>Lister</h3>     
+        <div class="role">Official Dealer &middot; Lights &amp; Fans Division</div>
+        <p>As an authorised distributor for Lister, Balram Jaiswal supplies their complete range of lights and fans to retailers, electricians, and distributors across the region. Lister products are trusted for performance, energy efficiency, and long-lasting durability.</p>
+        <ul class="feat-list">
+          <li><i class="fas fa-check-circle"></i> LED Bulbs, Tube Lights &amp; Panel Lights</li>
+          <li><i class="fas fa-check-circle"></i> Decorative &amp; Strip Lighting</li>
+          <li><i class="fas fa-check-circle"></i> Ceiling Fans &mdash; standard &amp; decorative models</li>
+          <li><i class="fas fa-check-circle"></i> Exhaust, Table &amp; Pedestal Fans</li>
+          <li><i class="fas fa-check-circle"></i> Competitive dealer pricing &amp; fast regional delivery</li>
+        </ul>
+        <i class="fas fa-bolt t-bg-icon"></i>
+      </div>
+      <div class="trading-card">
+        <div class="t-badge"><i class="fas fa-lightbulb"></i> Authorised Distributer</div>
+        <img src="asset/nordusk_logo.png" alt="Nordusk Logo" style="position:absolute;top:1rem;right:1rem;width:250px;height:65px;object-fit:contain;background:#fff;padding:5px;box-shadow:0 2px 8px rgba(0,0,0,0.08);z-index:2;">
+<h3>Nordusk</h3>
+        <div class="role">Official Dealer &middot; Lighting Division</div>
+        <p>As an authorised distributor for Nordusk, Balram Jaiswal distributes their full lighting range — catering to electrical retailers, contractors, and project buyers seeking quality lighting solutions at wholesale rates.</p>
+        <ul class="feat-list">
+          <li><i class="fas fa-check-circle"></i> LED Bulbs &mdash; all wattages &amp; types</li>
+          <li><i class="fas fa-check-circle"></i> Tube Lights &amp; Battens</li>
+          <li><i class="fas fa-check-circle"></i> Panel Lights &amp; Downlights</li>
+          <li><i class="fas fa-check-circle"></i> Decorative &amp; Strip Lighting</li>
+          <li><i class="fas fa-check-circle"></i> Bulk order discounts available</li>
+        </ul>
+        <i class="fas fa-lightbulb t-bg-icon"></i>
+      </div>
+    </div>
+    <div style="background:var(--copper-pale);border:1px solid var(--border);padding:2rem;display:flex;align-items:center;gap:2rem;flex-wrap:wrap;justify-content:space-between;">
+      <div>
+        <h4 style="font-family:'Playfair Display',serif;color:var(--charcoal-deep);font-size:1.2rem;margin-bottom:0.35rem">Looking to become a retailer?</h4>
+        <p style="color:var(--text-light);font-size:0.83rem">Reach out to discuss dealership opportunities, pricing, and supply for both Lister and Nordusk products.</p>
+      </div>
+      <button class="btn-copper" onclick="show('contact')">Contact for Dealership</button>
+    </div>
+
+    <!-- Listuer Product Gallery -->
+    <div style="margin-top:2.5rem;">
+      <h3 style="font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--charcoal-deep);font-weight:700;margin-bottom:0.25rem;">
+        <i class="fas fa-bolt" style="color:var(--copper);margin-right:0.5rem;font-size:1rem"></i> Lister — Product Gallery
+      </h3>
+      <p style="color:var(--text-light);font-size:0.83rem;margin-bottom:0.5rem">Add product visuals from Lister range here</p>
+      <div class="gallery-grid" id="listerGallery"></div>
+    </div>
+
+    <!-- Nordusk Product Gallery -->
+    <div style="margin-top:2.5rem;">
+      <h3 style="font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--charcoal-deep);font-weight:700;margin-bottom:0.25rem;">
+        <i class="fas fa-lightbulb" style="color:var(--copper);margin-right:0.5rem;font-size:1rem"></i> Nordusk — Product Gallery
+      </h3>
+      <p style="color:var(--text-light);font-size:0.83rem;margin-bottom:0.5rem">Add product visuals from Nordusk range here.</p>
+      <div class="gallery-grid" id="norduskGallery"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════ INSURANCE ════════════ -->
+<div id="page-insurance" class="page">
+  <div class="sec-header">
+    <h2>Insurance Advisory</h2>
+    <p> Trusted financial guidance through Aditya Birla Sun Life Insurance</p>
+    <div class="copper-line"></div>
+  </div>
+  <div class="sec-body">
+    <div class="mdrt-card" >
+      <div class="mdrt-chip"><i class="fas fa-trophy"></i> MDRT Achievement</div>
+      <h3>Million Dollar Round Table &mdash; 3&times; Achiever</h3>
+      <div class="sub">Aditya Birla Sun Life Insurance &middot; Kolkata</div>
+      <p>The Million Dollar Round Table (MDRT) is the world's most prestigious recognition for insurance and financial professionals. Achieving it once is exceptional &mdash; Balram Jaiswal has achieved it <strong style="color:var(--copper-bright)">three times</strong>, placing him among an elite group who consistently deliver outstanding client results and financial guidance.</p>
+      <div class="year-chips">
+        <div class="y-chip"><i class="fas fa-star"></i> MDRT Achiever &mdash; 2023</div>
+        <div class="y-chip"><i class="fas fa-star"></i> MDRT Achiever &mdash; 2022</div>
+        <div class="y-chip"><i class="fas fa-star"></i> MDRT Achiever &mdash; 2021</div>
+      </div>
+    </div>
+    
+    <h3 style="font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--charcoal-deep);margin-bottom:1rem;font-weight:700;">Financial Planning Services</h3>
+    <div class="ins-grid">
+      <div class="ins-card"><i class="fas fa-heart"></i><h4>Life Insurance</h4><p>Secure your family's future with the right life cover and term plans.</p></div>
+      <div class="ins-card"><i class="fas fa-piggy-bank"></i><h4>Savings &amp; Investment</h4><p>Solutions that encourage disciplined financial planning while supporting future goals.</p></div>
+      <div class="ins-card"><i class="fas fa-user-shield"></i><h4>Health Coverage</h4><p>Helping clients understand protection-based options for unexpected medical and health-related needs</p></div>
+      <div class="ins-card"><i class="fas fa-graduation-cap"></i><h4>Children's Plans</h4><p>Planning-focused solutions designed to support education goals and future responsibilities.</p></div>
+      <div class="ins-card"><i class="fas fa-chart-line"></i><h4>Retirement Planning</h4><p>Practical support for long-term financial preparation and income-oriented future planning.</p></div>
+      <div class="ins-card"><i class="fas fa-building"></i><h4>Personal Consultation</h4><p>One-to-one advisory support based on individual needs, priorities, and long-term planning goals.</p></div>
+    </div>
+
+    <!-- Why Clients Trust Him -->
+    <div class="trust-section">
+      <h3><i class="fas fa-handshake"></i> Why Clients Trust Him</h3>
+      <ul class="trust-list">
+        <li><i class="fas fa-check-circle"></i> Honest and simple guidance</li>
+        <li><i class="fas fa-check-circle"></i> Relationship-driven approach</li>
+        <li><i class="fas fa-check-circle"></i> No pressure selling mindset</li>
+        <li><i class="fas fa-check-circle"></i> Focus on long-term value</li>
+        <li><i class="fas fa-check-circle"></i> Respectful client communication</li>
+        <li><i class="fas fa-check-circle"></i> Trusted support through the decision process</li>
+      </ul>
+    </div>
+ 
+    <h3 style="font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--charcoal-deep);margin:2rem 0 0.8rem;font-weight:700;">
+      <i class="fas fa-award" style="color:var(--copper);margin-right:0.5rem;font-size:1rem"></i> Awards &amp; Recognition
+    </h3>
+    <p style="color:var(--text-light);font-size:0.83rem;margin-bottom:0.5rem"> Award photos.</p>
+    <div class="gallery-grid" id="awardsGallery"></div>
+
+    <div style="background:var(--charcoal);padding:2rem;margin-top:2rem;display:flex;align-items:center;gap:2rem;flex-wrap:wrap;justify-content:space-between;">
+      <div>
+        <h4 style="font-family:'Playfair Display',serif;color:var(--white);font-size:1.2rem;margin-bottom:0.35rem">Need insurance or investment advice?</h4>
+        <p style="color:rgba(255,255,255,0.55);font-size:0.83rem">Book a personalized consultation for practical and trustworthy financial advice.</p>
+      </div>
+      <button class="btn-copper" onclick="show('contact')">Book a Consultation</button>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════ CONTACT & ABOUT ════════════ -->
+<div id="page-contact" class="page">
+  <div class="sec-header">
+    <h2>Contact &amp; About</h2>
+    <p>For shop enquiries, dealerships, or insurance advice &mdash; we're here to help</p>
+    <div class="copper-line"></div>
+  </div>
+  <div class="sec-body">
+    <div class="contact-grid">
+      <div class="c-info">
+        <h3>Contact Information</h3>
+        <p class="sub">Reach out directly or fill the form and we'll respond shortly. All enquiries welcome &mdash; wholesale, trading, or insurance.</p>
+        <div class="c-row">
+          <div class="icon"><i class="fas fa-phone-alt"></i></div>
+          <div><h5>Phone</h5><a href="tel:+919830856031">+91 9883477391</a><a href="tel:+919831877090">+91 9830856031</a></div>
+        </div>
+        <div class="c-row">
+          <div class="icon"><i class="fas fa-envelope"></i></div>
+          <div><h5>Email</h5><a href="/cdn-cgi/l/email-protection#cea7a0a8a18eacafa2bcafa3a4afa7bdb9afa2a9bca1bbbee0ada1a3"><span class="__cf_email__" data-cfemail="d7bdb6bea4a0b6bbb0a5b8a2a7e1ef97b0bab6bebbf9b4b8ba"><span class="__cf_email__" data-cfemail="1278737b6165737e75607d6762242a52757f737b7e3c717d7f">jaiswalgroup68@gmail.com</span></span></a></div>
+        </div>
+        <div class="c-row">
+          <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div><h5>Location</h5><p>40, Line Bazaar St, Nawabganj, Ichhapur Defence Estate, Kolkata, West Bengal 743144</p></div>
+        </div>
+        <div class="c-row">
+          <div class="icon"><i class="fas fa-clock"></i></div>
+          <div><h5>Business Hours</h5><p>Mon &ndash; Sun: 10:00 AM &ndash; 7:00 PM</p></div>
+        </div>
+        <a href="https://wa.me/919830856031" class="wa-btn" target="_blank">
+          <i class="fab fa-whatsapp" style="font-size:1.1rem"></i> Chat on WhatsApp
+        </a>
+      </div>
+      <div class="c-form">
+        <h4>Send an Enquiry</h4>
+        <div class="f-row">
+          <div class="f-group"><label>Your Name</label><input type="text" id="c-name" placeholder="Full name"></div>
+          <div class="f-group"><label>Phone Number</label><input type="tel" id="c-phone" placeholder="+91 00000 00000"></div>
+        </div>
+        <div class="f-group"><label>Email Address</label><input type="email" id="c-email" placeholder="you@example.com"></div>
+        <div class="f-group">
+          <label>Enquiry Type</label>
+          <select id="c-type">
+            <option value="">&#8212; Select &#8212;</option>
+            <option>Shop / Wholesale Products</option>
+            <option>Lister&mdash; Lights &amp; Fans Trading</option>
+            <option>Nordusk &mdash; Lights Trading</option>
+            <option>Insurance &amp; Financial Planning</option>
+            <option>General Enquiry</option>
+          </select>
+        </div>
+        <div class="f-group"><label>Message</label><textarea id="c-msg" placeholder="How can we help you?"></textarea></div>
+        <button class="f-btn" onclick="sendMsg()"><i class="fas fa-paper-plane" style="margin-right:0.5rem"></i>Send Enquiry</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>&copy; 2025 <span>Balram Jaiswal</span> &middot; Jaiswal Group &middot; All Rights Reserved</p>
+  <p style="margin-top:0.3rem;font-size:0.7rem">Wholesale Shop &middot; Lister (Lights &amp; Fans) &middot; Nordusk (Lights) &middot; Insurance Advisory (Aditya Birla Sun Life)</p>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  function show(id){
+    document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+    document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));
+    document.getElementById('page-'+id).classList.add('active');
+    document.getElementById('tab-'+id).classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  function toast(msg){
+    const t=document.getElementById('toast');
+    t.textContent=msg; t.classList.add('show');
+    setTimeout(()=>t.classList.remove('show'),3500);
+  }
+  function sendMsg(){
+    const name=document.getElementById('c-name').value.trim();
+    const phone=document.getElementById('c-phone').value.trim();
+    const type=document.getElementById('c-type').value;
+    const msg=document.getElementById('c-msg').value;
+    if(!name||!phone){toast('\u26a0 Please fill in name and phone.');return;}
+    const wa=encodeURIComponent('Hello Balram Ji,\n\nName: '+name+'\nPhone: '+phone+'\nEnquiry: '+(type||'General')+'\n\n'+msg);
+    window.open('https://wa.me/919830856031?text='+wa,'_blank');
+    toast('\u2713 Opening WhatsApp with your message!');
+  }
+  /* ══ Gallery image paths — edit paths below to point to your files ══
+     Path is relative to index.html location.
+     Examples:
+       'shop/photo1.jpg'
+       'shop/utensils/front.jpg'
+       'assets/shop/img.png'
+     Leave a slot as '' to hide it.
+  ═══════════════════════════════════════════════════════════════════ */
+
+  const GALLERY_IMAGES = {
+
+    shopGallery: [
+      /* ── Slot 1 ── */ 'asset/shop/1.jpg',
+      /* ── Slot 2 ── */ 'asset/shop/2.jpg',
+      /* ── Slot 3 ── */ 'asset/shop/3.jpg',
+      /* ── Slot 4 ── */ 'asset/shop/4.jpg',
+      /* ── Slot 5 ── */ 'asset/shop/5.png',
+      /* ── Slot 6 ── */ 'asset/shop/6.png',
+      /* ── Slot 7 ── */ 'asset/shop/7.png',
+      /* ── Slot 8 ── */ 'asset/shop/8.png',
+      /* ── Slot 9 ── */ 'asset/shop/9.png',
+      /* ── Slot 10 ── */ 'asset/shop/10.png',
+      /* ── Slot 11 ── */ 'asset/shop/11.jpeg',
+      /* ── Slot 12 ── */ 'asset/shop/12.jpeg',
+      /* ── Slot 12 ── */ 'asset/shop/13.jpeg',
+      /* ── Slot 12 ── */ 'asset/shop/14.jpeg',
+      /* ── Slot 12 ── */ 'asset/shop/15.jpeg',
+    ],
+
+    listerGallery: [
+      /* Photo 1  */ 'listuer/1.jpg',
+      /* Photo 2  */ 'listuer/2.jpg',
+      /* Photo 3  */ 'listuer/3.jpg',
+      /* Photo 4  */ 'listuer/4.jpg',
+      /* Photo 5  */ 'listuer/5.jpg',
+      /* Photo 6  */ 'listuer/6.jpg',
+      /* Photo 7  */ 'listuer/7.jpg',
+      /* Photo 8  */ 'listuer/8.jpg',
+    ],
+
+    norduskGallery: [
+      /* Photo 1  */ 'norkdusk/1.jpg',
+      /* Photo 2  */ 'norkdusk/2.jpg',
+      /* Photo 3  */ 'norkdusk/3.jpg',
+      /* Photo 4  */ 'norkdusk/4.jpg',
+      /* Photo 5  */ 'norkdusk/5.jpg',
+      /* Photo 6  */ 'norkdusk/6.jpg',
+      /* Photo 7  */ 'norkdusk/7.jpg',
+      /* Photo 8  */ 'norkdusk/8.jpg',
+    ],
+
+    awardsGallery: [
+      /* ── Slot 1 ── */ 'asset/awards/1.jpg',
+      /* ── Slot 2 ── */ 'asset/awards/2.jpg',
+      /* ── Slot 3 ── */ 'asset/awards/3.jpg',
+      /* ── Slot 4 ── */ 'asset/awards/4.png',
+      /* ── Slot 5 ── */ 'asset/awards/5.jpg',
+    ],
+
+  };
+
+  /* ══ Lightbox state ══ */
+  let _lbImages = [];   // flat array of {src, caption} for current gallery group
+  let _lbIdx    = 0;
+
+  function lbOpen(images, startIdx) {
+    _lbImages = images;
+    _lbIdx    = startIdx;
+    lbRender();
+    document.getElementById('lb-overlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function lbClose() {
+    document.getElementById('lb-overlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function lbStep(dir) {
+    _lbIdx = (_lbIdx + dir + _lbImages.length) % _lbImages.length;
+    lbRender();
+  }
+
+  function lbRender() {
+    const item = _lbImages[_lbIdx];
+    const img  = document.getElementById('lb-img');
+    img.style.opacity = '0';
+    img.src = item.src;
+    img.alt = item.caption;
+    img.onload = function() {
+      img.style.transition = 'opacity 0.25s';
+      img.style.opacity = '1';
+    };
+    document.getElementById('lb-caption').textContent = item.caption;
+    document.getElementById('lb-counter').textContent =
+      (_lbIdx + 1) + ' / ' + _lbImages.length;
+    // Hide arrows if only 1 image
+    document.getElementById('lb-prev').style.display = _lbImages.length > 1 ? '' : 'none';
+    document.getElementById('lb-next').style.display = _lbImages.length > 1 ? '' : 'none';
+  }
+
+  // Keyboard navigation
+  document.addEventListener('keydown', function(e) {
+    const overlay = document.getElementById('lb-overlay');
+    if (!overlay.classList.contains('open')) return;
+    if (e.key === 'Escape')      lbClose();
+    if (e.key === 'ArrowRight')  lbStep(1);
+    if (e.key === 'ArrowLeft')   lbStep(-1);
+  });
+
+  // Click outside image to close
+  document.getElementById('lb-overlay').addEventListener('click', function(e) {
+    if (e.target === this) lbClose();
+  });
+
+  /* ══ Gallery builder — reads GALLERY_IMAGES, adds lightbox on click ══ */
+  function buildGallery(id) {
+    const g = document.getElementById(id);
+    if (!g) return;
+    const paths = GALLERY_IMAGES[id] || [];
+
+    // Build list of valid images for this gallery (for lightbox navigation)
+    const validImages = paths
+      .map(function(src, idx) {
+        return { src: src.trim(), caption: 'Photo ' + (idx + 1) };
+      })
+      .filter(function(item) { return item.src !== ''; });
+
+    paths.forEach(function(src, idx) {
+      const s = document.createElement('div');
+      s.className = 'g-slot';
+
+      if (src && src.trim() !== '') {
+        const img = document.createElement('img');
+        img.src     = src.trim();
+        img.alt     = 'Photo ' + (idx + 1);
+        img.title   = 'Click to enlarge';
+
+        // Lightbox index within valid images only
+        const lbIdx = validImages.findIndex(function(v) { return v.src === src.trim(); });
+        img.addEventListener('click', function() {
+          lbOpen(validImages, lbIdx);
+        });
+
+        img.onerror = function() {
+          this.remove();
+          s.innerHTML = '<i class="fas fa-image"></i><span>Photo ' + (idx + 1) + '</span>';
+        };
+        s.appendChild(img);
+      } else {
+        s.innerHTML = '<i class="fas fa-image"></i><span>Photo ' + (idx + 1) + '</span>';
+      }
+      g.appendChild(s);
+    });
+  }
+
+  buildGallery('shopGallery');
+  buildGallery('listerGallery');
+  buildGallery('norduskGallery');
+  buildGallery('awardsGallery');
+</script>
+</body>
+</html>
